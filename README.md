@@ -9,7 +9,7 @@ It also includes authentication, activity logging, and file-based storage to mai
 
 ### Authentication System
 - Admin login with username and password
-- Password hashing for security
+- Passwords stored as djb2 hashes (a simple teaching hash, not secure for real credentials)
 - Automatic administrator initialization
 
 ### Raw Material Management
@@ -62,7 +62,24 @@ All system activities are logged including:
 | production_records.dat | Production transaction records |
 | manufacturing_logs.txt | System activity logs |
 
+## Build and Run
+
+Needs a C compiler (gcc or clang).
+
+```bash
+gcc manufacturing_system.c -o manufacturing_system -lm
+./manufacturing_system
+```
+
+On macOS, `-lm` is optional. The program creates its `.dat` data files and log file on first run.
+
+## Project Report
+
+Design and feature walkthrough: [docs/IMPCS-project-report.pdf](docs/IMPCS-project-report.pdf)
+
 ## Default Admin Login
+
+Created automatically on first run.
 
 Username: admin  
 Password: admin123
